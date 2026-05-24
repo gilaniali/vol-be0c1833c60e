@@ -3,80 +3,798 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Access</title>
+<title>Vol Education - Day 1 & 2</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
-  font-family: Georgia, serif;
+  font-family: 'Georgia', serif;
   background: #0d1117;
   color: #c9d1d9;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+  line-height: 1.8;
+  padding: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  -webkit-user-select: none;
+  user-select: none;
 }
-#login-box {
+h1 {
+  color: #58a6ff;
+  font-size: 2rem;
+  border-bottom: 2px solid #30363d;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+h2 {
+  color: #79c0ff;
+  font-size: 1.5rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  border-left: 4px solid #58a6ff;
+  padding-left: 0.75rem;
+}
+h3 {
+  color: #d2a8ff;
+  font-size: 1.2rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+p { margin-bottom: 1rem; }
+.meta {
+  color: #8b949e;
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: #161b22;
+  border-radius: 8px;
+  border: 1px solid #30363d;
+}
+.section {
   background: #161b22;
   border: 1px solid #30363d;
-  border-radius: 12px;
-  padding: 2.5rem;
-  width: 340px;
-  text-align: center;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
 }
-#login-box h1 { color: #58a6ff; font-size: 1.5rem; margin-bottom: 1.5rem; }
-#pw {
-  width: 100%;
-  padding: 0.75rem 1rem;
+.key-insight {
+  background: #1a2332;
+  border: 1px solid #58a6ff;
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin: 1.5rem 0;
+}
+.key-insight::before {
+  content: "KEY INSIGHT";
+  display: block;
+  color: #58a6ff;
+  font-weight: bold;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+.repo-parallel {
+  background: #1a2a1a;
+  border: 1px solid #3fb950;
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin: 1.5rem 0;
+}
+.repo-parallel::before {
+  content: "REPO PARALLEL";
+  display: block;
+  color: #3fb950;
+  font-weight: bold;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+.formula {
+  background: #1c1c2e;
+  border: 1px solid #d2a8ff;
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin: 1.5rem 0;
+  font-family: 'Courier New', monospace;
+  font-size: 1.1rem;
+  text-align: center;
+  color: #f0e6ff;
+}
+.formula .label {
+  font-family: Georgia, serif;
+  font-size: 0.8rem;
+  color: #d2a8ff;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+.interview-q {
+  background: #2a1a1a;
+  border: 1px solid #f85149;
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin: 1.5rem 0;
+}
+.interview-q::before {
+  content: "INTERVIEW QUESTION";
+  display: block;
+  color: #f85149;
+  font-weight: bold;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+.diagram {
   background: #0d1117;
   border: 1px solid #30363d;
-  border-radius: 6px;
-  color: #c9d1d9;
-  font-size: 1rem;
-  font-family: Georgia, serif;
-  margin-bottom: 1rem;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  font-family: 'Courier New', monospace;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  white-space: pre;
+  overflow-x: auto;
+  color: #8b949e;
 }
-#pw:focus { outline: none; border-color: #58a6ff; }
-#btn {
-  width: 100%;
-  padding: 0.75rem;
-  background: #238636;
-  color: #fff;
-  border: none;
+.highlight { color: #ffa657; font-weight: bold; }
+.emph { color: #ff7b72; font-style: italic; }
+ul, ol { margin-left: 1.5rem; margin-bottom: 1rem; }
+li { margin-bottom: 0.5rem; }
+strong { color: #e6edf3; }
+em { color: #d2a8ff; }
+.toc {
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin-bottom: 2rem;
+}
+.toc h3 { margin-top: 0; color: #8b949e; }
+.toc ol { margin-bottom: 0; }
+.toc li { color: #58a6ff; }
+.progress-bar {
+  background: #30363d;
+  border-radius: 4px;
+  height: 8px;
+  margin: 1rem 0;
+  overflow: hidden;
+}
+.progress-fill {
+  background: linear-gradient(90deg, #58a6ff, #3fb950);
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.5s;
+}
+.nav-section {
+  color: #8b949e;
+  font-size: 0.85rem;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+  border-top: 1px solid #30363d;
+}
+.answer-hidden {
+  background: #30363d;
+  color: #30363d;
+  padding: 0.75rem 1rem;
   border-radius: 6px;
-  font-size: 1rem;
+  margin-top: 0.75rem;
   cursor: pointer;
-  font-family: Georgia, serif;
+  transition: color 0.3s;
 }
-#btn:hover { background: #2ea043; }
-#err { color: #f85149; margin-top: 1rem; font-size: 0.9rem; display: none; }
+.answer-hidden:hover {
+  color: #c9d1d9;
+}
+.table-wrap {
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+th, td {
+  border: 1px solid #30363d;
+  padding: 0.6rem 1rem;
+  text-align: left;
+}
+th { background: #161b22; color: #79c0ff; }
+td { background: #0d1117; }
+.day-divider {
+  border: none;
+  border-top: 3px solid #58a6ff;
+  margin: 4rem 0 2rem 0;
+  position: relative;
+}
+.day-divider::after {
+  content: "";
+  display: block;
+  height: 3px;
+  background: linear-gradient(90deg, #58a6ff, #3fb950, #d2a8ff);
+  margin-top: -3px;
+}
 </style>
 </head>
 <body>
-<div id="login-box">
-  <h1>Vol Education</h1>
-  <input type="password" id="pw" placeholder="Password" autofocus>
-  <button id="btn" onclick="unlock()">Enter</button>
-  <p id="err">Wrong password</p>
+
+<!-- ================================================================ -->
+<!--                         DAY 1                                    -->
+<!-- ================================================================ -->
+
+<h1>Day 1: What Options Actually Are</h1>
+
+<div class="meta">
+  <strong>Interview Prep</strong> &mdash; Commodities Vol Desk (Week 1 of 3)<br>
+  Saturday May 24, 2026 &mdash; Combined Day 1 + Day 2 session<br>
+  <strong>Source articles:</strong> "A Visual Primer for Understanding Options" + "How I Understand the Black-Scholes Formula" + "Why Put-Call Parity Is Such a Deep Insight" + "Learn Put-Call Parity with This Free Game" (Kris Abdelmessih / Moontower)<br>
+  <div class="progress-bar"><div class="progress-fill" style="width: 11%"></div></div>
+  Days 1-2 of 18 &mdash; 11% complete
 </div>
-<script>
-const D={"salt": "kKdb/WgBHQ55qJBo3AyobQ==", "iv": "MVIWWNR5tddpM1iq", "ct": "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"};
-async function unlock(){
-  const pw=document.getElementById('pw').value;
-  try{
-    const enc=new TextEncoder();
-    const salt=Uint8Array.from(atob(D.salt),c=>c.charCodeAt(0));
-    const iv=Uint8Array.from(atob(D.iv),c=>c.charCodeAt(0));
-    const ct=Uint8Array.from(atob(D.ct),c=>c.charCodeAt(0));
-    const keyMaterial=await crypto.subtle.importKey('raw',enc.encode(pw),'PBKDF2',false,['deriveKey']);
-    const key=await crypto.subtle.deriveKey({name:'PBKDF2',salt:salt,iterations:100000,hash:'SHA-256'},keyMaterial,{name:'AES-GCM',length:256},false,['decrypt']);
-    const plain=await crypto.subtle.decrypt({name:'AES-GCM',iv:iv},key,ct);
-    const html=new TextDecoder().decode(plain);
-    document.open();document.write(html);document.close();
-  }catch(e){
-    document.getElementById('err').style.display='block';
-  }
-}
-document.getElementById('pw').addEventListener('keydown',function(e){if(e.key==='Enter')unlock()});
-</script>
+
+<div class="toc">
+  <h3>TODAY'S ROADMAP</h3>
+  <ol>
+    <li><strong>Day 1</strong> &mdash; The Big Picture: What is an option?</li>
+    <li>Options as Probability Distributions</li>
+    <li>Black-Scholes: The Trader's Intuition</li>
+    <li>Implied Vol: The Universal Language</li>
+    <li>Key Formulas You Need Cold</li>
+    <li>The Vol Trader's Job</li>
+    <li>Day 1 Interview Questions</li>
+    <li style="color: #3fb950; margin-top: 0.75rem;"><strong>Day 2</strong> &mdash; Put-Call Parity: The Deepest Insight</li>
+    <li style="color: #3fb950;">Why Every Option Trade Is a Vol Trade</li>
+    <li style="color: #3fb950;">Covered Calls: The "Income" Illusion</li>
+    <li style="color: #3fb950;">Synthetics and Replication</li>
+    <li style="color: #3fb950;">The SIG Parity Game</li>
+    <li style="color: #3fb950;">Day 2 Interview Questions</li>
+  </ol>
+</div>
+
+<!-- ========== SECTION 1 ========== -->
+<h2>1. The Big Picture: What Is an Option?</h2>
+
+<div class="section">
+<p>Forget everything you've heard about "bets on direction." Here's what Kris hammers home from day one:</p>
+
+<div class="key-insight">
+An option is a <strong>priced probability distribution</strong>. The option price IS the market's assessment of the distribution of possible future outcomes. When you trade options, you're not betting on direction &mdash; you're trading the <em>shape of uncertainty itself</em>.
+</div>
+
+<p>Think of it this way:</p>
+<ul>
+  <li>A <strong>stock price</strong> tells you one thing: where the market thinks the average outcome is (the mean of the distribution &mdash; the "first moment")</li>
+  <li>An <strong>option price</strong> tells you about the <em>entire shape</em> of the distribution: how wide it is, whether it's skewed, how fat the tails are</li>
+</ul>
+
+<p>This is why Kris says <strong>options are the "true underlying"</strong> &mdash; they contain far richer information than the stock price alone.</p>
+
+<div class="repo-parallel">
+In repo, when you look at a specials rate, you're not just seeing a number &mdash; you're seeing the market's assessment of <strong>how scarce</strong> that collateral is and how uncertain that scarcity is over time. The rate encodes supply/demand dynamics, settlement risk, and delivery uncertainty. An option price encodes the same kind of multi-dimensional uncertainty, just for price movements instead of collateral scarcity.
+</div>
+</div>
+
+<!-- ========== SECTION 2 ========== -->
+<h2>2. Options as Probability Distributions</h2>
+
+<div class="section">
+<p>Imagine a stock at $100. Over the next year, it could end up anywhere. The market assigns probabilities to each possible ending price, forming a bell-curve-like distribution:</p>
+
+<div class="diagram">
+                          Probability
+                            |
+                          **|**
+                        *** | ***
+                      ***   |   ***
+                    ***     |     ***
+                 ****       |       ****
+            *****           |           *****
+  ______****________________|________________****______
+  $60   $70   $80   $90   $100  $110  $120  $130  $140
+                          Stock Price at Expiry
+                            ^
+                         ATM (peak)
+</div>
+
+<h3>Buying a Call = Buying the Right Tail</h3>
+<p>When you buy a call at strike K, you're paying for the <strong>probability-weighted area to the right of K</strong>. You're buying the chunk of the distribution where the stock ends up above your strike.</p>
+
+<div class="diagram">
+                          Probability
+                            |
+                          **|**
+                        *** | ***
+                      ***   |   ***
+                    ***     |     ***
+                 ****       |    |||||||||||||||  &lt;-- YOU OWN THIS
+            *****           |    |||||||||||||||||||||||
+  ______****________________|____|_________________****______
+  $60   $70   $80   $90   $100  $110  $120  $130  $140
+                                  ^
+                              Strike K=$110
+</div>
+
+<h3>Buying a Put = Buying the Left Tail</h3>
+<p>Same idea, other side. A put at strike K pays for the area <em>left</em> of K.</p>
+
+<h3>What Makes Options More or Less Expensive?</h3>
+
+<div class="table-wrap">
+<table>
+<tr><th>What changes</th><th>Effect on distribution</th><th>Effect on option price</th></tr>
+<tr><td>Stock price rises</td><td>Whole distribution shifts right</td><td>Calls gain area (more expensive), puts lose area</td></tr>
+<tr><td>Volatility rises</td><td>Distribution gets <strong>wider</strong></td><td>Both calls and puts get more expensive (more area in tails)</td></tr>
+<tr><td>Time passes</td><td>Distribution gets <strong>narrower</strong> (less time to move)</td><td>Both calls and puts get cheaper (less area in tails)</td></tr>
+</table>
+</div>
+
+<div class="key-insight">
+<strong>The Greeks are just names for how each factor changes the area under the distribution:</strong>
+<ul>
+  <li><strong>Delta</strong> = how much area you gain/lose when the distribution shifts (stock moves)</li>
+  <li><strong>Gamma</strong> = how fast delta itself changes as the distribution shifts</li>
+  <li><strong>Vega</strong> = how much area you gain/lose when the distribution gets wider/narrower (vol changes)</li>
+  <li><strong>Theta</strong> = how much area you lose as the distribution narrows with time</li>
+</ul>
+</div>
+
+<div class="repo-parallel">
+Think of your repo book. You have <strong>DV01</strong> (sensitivity to rate moves) which is exactly like <strong>vega</strong> (sensitivity to vol moves). You have <strong>convexity</strong> (the nonlinear relationship between price and yield) which is exactly like <strong>gamma</strong> (the nonlinear relationship between option price and stock price). You already understand these sensitivities &mdash; options just apply them to a different underlying risk.
+</div>
+</div>
+
+<!-- ========== SECTION 3 ========== -->
+<h2>3. Black-Scholes: The Trader's Intuition</h2>
+
+<div class="section">
+<p>Forget the differential equation. Here's how Kris (a 12-year floor market maker) actually understands BSM:</p>
+
+<h3>Start from what we know at expiry</h3>
+<p>At expiration, a call is worth exactly:</p>
+<div class="formula">
+  Call at expiry = max(Stock Price - Strike, 0)
+</div>
+<p>It's either worth something (if stock > strike) or nothing. Simple.</p>
+
+<h3>So today, the call price is two pieces:</h3>
+<div class="formula">
+  <div class="label">Black-Scholes in English</div>
+  Call = [Expected stock price <em>given it finishes ITM</em>] &times; [Prob of finishing ITM]<br>
+  &minus; [Discounted strike] &times; [Prob of finishing ITM]
+</div>
+
+<p><strong>Concrete example:</strong></p>
+<ul>
+  <li>Stock = $50, Strike = $50, 1 year, risk-free rate = 5%</li>
+  <li>Say there's a 50% chance the call finishes in-the-money</li>
+  <li>Given it finishes ITM, the stock averages $58 (like rolling a die: given you roll > 3, the average is 5)</li>
+  <li>Expected stock value in ITM world: 50% &times; $58 = <strong>$29</strong></li>
+  <li>Discounted strike: 50% &times; $50 &times; e<sup>-0.05</sup> = 50% &times; $47.56 = <strong>$23.78</strong></li>
+  <li>Call value = $29 &minus; $23.78 = <strong>$5.22</strong></li>
+</ul>
+
+<div class="key-insight">
+<strong>The Replication Insight:</strong> You can manufacture a call option without buying one. Just hold "delta" shares of stock (adjusting as the stock moves) and borrow cash. The cost of this replicating strategy &mdash; buying high, selling low as you adjust &mdash; should exactly equal the option price. If it doesn't, there's an arbitrage.<br><br>
+This is why <strong>the model doesn't predict anything</strong>. It just translates between the option's dollar price and a number called "implied volatility." It's a <em>unit converter</em>, not a crystal ball.
+</div>
+
+<div class="repo-parallel">
+You already know replication. In repo, you can replicate a bond position through the repo market &mdash; borrow cash, buy the bond, finance it in repo. The economics should be equivalent (or there's an arbitrage). BSM is the same concept: replicate the option with stock + cash, and the no-arbitrage price pops out. Same logic, different instrument.
+</div>
+
+<h3>Why does the option have value beyond intrinsic?</h3>
+<p>Because <strong>uncertainty has value when your downside is capped</strong>. If you hold a call and the stock crashes, you lose your premium and nothing more. But if it rockets up, you capture all the upside. This asymmetry means more uncertainty (higher vol) = more valuable option. The "time value" of an option is literally the price of this asymmetric exposure to uncertainty.</p>
+</div>
+
+<!-- ========== SECTION 4 ========== -->
+<h2>4. Implied Volatility: The Universal Language</h2>
+
+<div class="section">
+<p>Professional options traders don't say "that call is $3.20." They say "that's <strong>28 vol</strong>."</p>
+
+<p>Why? Because dollar prices are meaningless without context. A $3 option on a $100 stock is very different from a $3 option on a $500 stock, with different time to expiry, different strike. Implied volatility normalizes all of this.</p>
+
+<div class="key-insight">
+<strong>Implied volatility</strong> is the number you plug into the BSM formula to make the model's theoretical price match the market price. It's the market's consensus on how much the stock will bounce around, expressed as an annualized percentage.
+</div>
+
+<h3>The conversion shortcuts you need to be instant at:</h3>
+
+<div class="formula">
+  <div class="label">Annual &harr; Daily Vol</div>
+  Daily vol &approx; Annual vol &divide; 16<br><br>
+  (Because &radic;252 &approx; 15.87 &approx; 16)
+</div>
+
+<p><strong>Example:</strong> Oil has 32% annual implied vol. Daily expected move &asymp; 32% &divide; 16 = <strong>2% per day</strong>. If oil is at $75, that's $75 &times; 0.02 = <strong>$1.50/day</strong>.</p>
+
+<div class="formula">
+  <div class="label">Straddle Approximation</div>
+  ATM Straddle &approx; 0.8 &times; S &times; &sigma; &times; &radic;T
+</div>
+
+<p><strong>Example:</strong> Stock = $100, &sigma; = 25%, T = 0.25 years (3 months)</p>
+<p>Straddle &asymp; 0.8 &times; 100 &times; 0.25 &times; &radic;0.25 = 0.8 &times; 100 &times; 0.25 &times; 0.5 = <strong>$10.00</strong></p>
+
+<div class="formula">
+  <div class="label">Square Root of Time</div>
+  Moves scale by &radic;T, not T<br><br>
+  1-day move &times; &radic;N = N-day expected move<br><br>
+  Example: $1.50/day move &times; &radic;5 &approx; $1.50 &times; 2.24 &approx; $3.35/week
+</div>
+
+<div class="repo-parallel">
+You already know &radic;T scaling from repo. When you estimate P&amp;L risk on a term repo position, the uncertainty grows with &radic;T, not linearly. A 30-day repo has &radic;6 times the uncertainty of a 5-day repo, not 6 times. Same math, same reason: random walk.
+</div>
+</div>
+
+<!-- ========== SECTION 5 ========== -->
+<h2>5. Key Formulas You Need Cold</h2>
+
+<div class="section">
+<div class="formula">
+  <div class="label">Daily vol from annual</div>
+  &sigma;<sub>daily</sub> = &sigma;<sub>annual</sub> &divide; 16
+</div>
+
+<div class="formula">
+  <div class="label">Straddle approximation</div>
+  ATM Straddle &approx; 0.8 &times; S &times; &sigma; &times; &radic;T
+</div>
+
+<div class="formula">
+  <div class="label">Working backwards: straddle &rarr; implied vol</div>
+  &sigma; &approx; Straddle &divide; (0.8 &times; S &times; &radic;T)
+</div>
+
+<div class="formula">
+  <div class="label">Working backwards: straddle &rarr; daily move</div>
+  Daily move &approx; Straddle &divide; (0.8 &times; &radic;T &times; 16)
+</div>
+
+<div class="formula">
+  <div class="label">Move scaling</div>
+  N-day move = 1-day move &times; &radic;N
+</div>
+
+<h3>Quick Drill:</h3>
+<ol>
+  <li>Crude oil at $80, 30% annual vol. What's the expected daily move in dollars?</li>
+  <li>Corn straddle costs $15, corn at $450, 3 months to expiry. What's implied vol?</li>
+  <li>If soybeans move $5/day on average, what's the expected move over a 2-week period (10 trading days)?</li>
+</ol>
+
+<div class="answer-hidden">
+  <strong>Answers (hover to reveal):</strong><br>
+  1. $80 &times; 30% &divide; 16 = $80 &times; 0.01875 = $1.50/day<br>
+  2. &sigma; = $15 &divide; (0.8 &times; $450 &times; 0.5) = $15 &divide; $180 = 8.33% &mdash; that's 3-month implied. Annualize: ~8.33%/&radic;0.25 = 16.7% annual vol.<br>
+  3. $5 &times; &radic;10 = $5 &times; 3.16 = $15.81 expected 2-week move
+</div>
+</div>
+
+<!-- ========== SECTION 6 ========== -->
+<h2>6. The Vol Trader's Job</h2>
+
+<div class="section">
+<p>Here's what a vol trader actually does, distilled into one framework:</p>
+
+<div class="key-insight">
+<strong>The question is never "will oil go up or down?"</strong><br><br>
+The question is: <strong>"Is the market's implied distribution correct?"</strong><br><br>
+Specifically: is IV too high or too low relative to what vol will actually realize?<br><br>
+This is <em>measurement</em>, not <em>prediction</em>. You're measuring whether the market has priced uncertainty correctly.
+</div>
+
+<p><strong>The mental model:</strong></p>
+<ul>
+  <li>Market says: "Oil will move about $1.50/day" (implied vol = 30%)</li>
+  <li>You think: "Actually, with OPEC meeting next week, oil will move $2.50/day" (you think realized vol will be ~50%)</li>
+  <li>Action: Buy vol (buy straddles). You don't care if oil goes up or down &mdash; you just think it'll move MORE than the market expects.</li>
+</ul>
+
+<div class="repo-parallel">
+<strong>This is exactly what you do in repo.</strong> The market says GC is trading at 4.30%. You look at supply/demand dynamics, settlement patterns, month-end pressure, and you think "no, the real clearing rate should be 4.50%." You don't care about the direction of rates overall &mdash; you're measuring whether this specific rate is mispriced relative to fundamentals. Same job, different instrument.
+</div>
+</div>
+
+<!-- ========== SECTION 7 ========== -->
+<h2>7. Day 1 Interview Questions</h2>
+
+<div class="section">
+<p>Answer these in the CLI. I'll grade you.</p>
+
+<div class="interview-q">
+<strong>Q1:</strong> What is implied volatility, and why do traders use it instead of option prices?
+</div>
+<div class="answer-hidden">
+<strong>Model answer (hover):</strong> Implied vol is the volatility number that, when plugged into BSM, produces the market price. Traders use it because it normalizes across strikes, expirations, and underlying prices. Saying "28 vol" immediately tells you the expected daily move (~1.75%), while "$3.20" tells you almost nothing without context.
+</div>
+
+<div class="interview-q">
+<strong>Q2:</strong> A stock is at $100 and the ATM straddle (1-month expiry) costs $8. What daily move is the market implying?
+</div>
+<div class="answer-hidden">
+<strong>Model answer (hover):</strong> &sigma; = $8 &divide; (0.8 &times; $100 &times; &radic;(1/12)) = $8 &divide; $23.1 &asymp; 34.6% annual vol. Daily move = 34.6% &divide; 16 &asymp; 2.16%. In dollars: $100 &times; 0.0216 = $2.16/day.
+</div>
+
+<div class="interview-q">
+<strong>Q3:</strong> Why is an option worth more than its intrinsic value?
+</div>
+<div class="answer-hidden">
+<strong>Model answer (hover):</strong> Because uncertainty has value when your downside is capped. More time = more uncertainty = wider distribution = more area in the tails you own. Time value IS the price of this asymmetric exposure.
+</div>
+
+<div class="interview-q">
+<strong>Q4:</strong> Oil is at $75, ATM straddle (1-month) costs $6. (a) Implied annual vol? (b) Daily move?
+</div>
+<div class="answer-hidden">
+<strong>Model answer (hover):</strong> (a) &sigma; = $6 &divide; (0.8 &times; $75 &times; 0.289) = $6 &divide; $17.3 &asymp; 34.7%. (b) $75 &times; 34.7% &divide; 16 &asymp; $1.63/day.
+</div>
+
+<div class="interview-q">
+<strong>Q5:</strong> "Where do you think oil is going?" &mdash; How should a vol trader answer?
+</div>
+<div class="answer-hidden">
+<strong>Model answer (hover):</strong> "I don't need a directional view. My job is to assess whether implied volatility is correct. If I think oil will be more volatile than priced &mdash; up or down &mdash; I buy vol. The question isn't where it goes, it's how much it moves."
+</div>
+</div>
+
+<!-- ================================================================ -->
+<!--                    DAY 2 DIVIDER                                 -->
+<!-- ================================================================ -->
+
+<hr class="day-divider">
+
+<h1>Day 2: Put-Call Parity &amp; Replication</h1>
+
+<div class="meta">
+  <strong>Source articles:</strong> "Why Put-Call Parity Is Such a Deep Insight" + "Learn Put-Call Parity with This Free Game" (Kris Abdelmessih / Moontower)
+</div>
+
+<!-- ========== DAY 2 SECTION 1 ========== -->
+<h2>8. Put-Call Parity: The Deepest Insight in Options</h2>
+
+<div class="section">
+<p>Kris calls this "profoundly deep" and he means it. Put-call parity isn't a formula to memorize and forget &mdash; it's the relationship that proves <strong>every single options trade is a volatility trade</strong>, whether you know it or not.</p>
+
+<div class="formula">
+  <div class="label">Put-Call Parity (stock version)</div>
+  C - P = S - K&middot;e<sup>-rT</sup>
+</div>
+
+<div class="formula">
+  <div class="label">Put-Call Parity (futures/commodity version)</div>
+  C - P = e<sup>-rT</sup> &times; (F - K)
+</div>
+
+<div class="formula">
+  <div class="label">SIG Trading Floor Version (what Kris learned)</div>
+  C = (S - K) + P + RC<br><br>
+  <span style="font-size: 0.85rem;">where RC = cost of carry to expiry ("reversal/conversion" value)</span>
+</div>
+
+<p><strong>What each piece means:</strong></p>
+<ul>
+  <li><strong>C</strong> = call price</li>
+  <li><strong>P</strong> = put price (same strike, same expiry)</li>
+  <li><strong>S</strong> = stock/underlying price</li>
+  <li><strong>K</strong> = strike price</li>
+  <li><strong>(S - K)</strong> = intrinsic value. If positive, the call is ITM. If negative, the put is ITM.</li>
+  <li><strong>RC</strong> = cost of carry (interest cost of holding stock to expiry)</li>
+</ul>
+
+<div class="key-insight">
+<strong>What parity actually says in plain English:</strong><br><br>
+A call and a put at the same strike and expiry <em>must</em> be related by the formula above. If they aren't, you have a risk-free arbitrage. The call and put are two views of the <em>same</em> underlying distribution &mdash; one owns the right tail, the other owns the left tail. Together they must add up to the whole distribution (minus the forward price).<br><br>
+<strong>Punchline:</strong> Calls and puts are <em>the same instrument</em> viewed from different angles. A call IS a put plus some stock. A put IS a call minus some stock. They are interchangeable.
+</div>
+
+<div class="repo-parallel">
+<strong>This is exactly like the no-arb relationship between cash bonds and repo.</strong> If you can buy a bond in the cash market and simultaneously repo it out, the economics must be consistent. If the cash price implies one yield and the repo rate implies a different one, you arb it. Put-call parity is the same thing: if the call price implies one vol and the put at the same strike implies a different vol, you arb it via a "conversion" or "reversal."
+</div>
+
+<h3>Why this matters for your interview:</h3>
+<p>An interviewer who asks about put-call parity isn't testing your memory of a formula. They want to know if you understand that <strong>options are fungible through replication</strong>. You can transform any option position into any other option position using the underlying. This means the <em>only</em> thing that matters when you trade an option is your view on volatility.</p>
+</div>
+
+<!-- ========== DAY 2 SECTION 2 ========== -->
+<h2>9. Why Every Option Trade Is a Vol Trade</h2>
+
+<div class="section">
+<p>This is Kris's main crusade, and it's the single most important thing you can internalize for the interview.</p>
+
+<h3>The Covered Call Illusion</h3>
+<p>Retail investors sell covered calls "for income." Here's why that framing is completely wrong:</p>
+
+<p>Say you own a stock at $100 and sell a 25-delta call (meaning the call has a 25% chance of being exercised). Your portfolio now has <strong>75% exposure to the stock</strong> instead of 100%. Every $1 the stock moves, you make/lose $0.75.</p>
+
+<p><strong>The alternative:</strong> Just sell 25% of your shares. Now you also have 75% exposure. Same thing.</p>
+
+<div class="key-insight">
+<strong>So what's the difference between Portfolio A (covered call) and Portfolio B (reduced position)?</strong><br><br>
+The difference is <em>entirely</em> a function of realized vol vs. implied vol.<br><br>
+<ul>
+  <li>If realized vol &lt; implied vol (stock moves less than expected): Covered call wins &rarr; you collected "expensive" premium</li>
+  <li>If realized vol &gt; implied vol (stock moves more than expected): Covered call loses &rarr; you sold "cheap" premium</li>
+  <li>If realized vol = implied vol: They perform identically</li>
+</ul>
+<strong>The "income" from selling a covered call is not free money. It's compensation for being short volatility.</strong> Whether it was a good trade depends <em>entirely</em> on whether vol was priced correctly.
+</div>
+
+<h3>Kris's Killer Table</h3>
+<p>From the article &mdash; even when you make a <em>terrible</em> covered call trade (selling vol way too cheap), you still win about 1/3 of the time. The high win rate is what fools people. But the <em>expectancy</em> is negative.</p>
+
+<div class="table-wrap">
+<table>
+<tr><th>Realized Vol vs. Implied</th><th>Win Rate of Covered Call</th><th>Expected Value</th></tr>
+<tr><td>Much lower (sold expensive vol)</td><td>~80%</td><td>Positive</td></tr>
+<tr><td>Equal (fair price)</td><td>~65%</td><td>Zero</td></tr>
+<tr><td>Much higher (sold cheap vol)</td><td>~33%</td><td>Negative</td></tr>
+</table>
+</div>
+
+<p><strong>The gap between win rate and expectancy is where charlatans live.</strong> This is Kris's exact quote, and it's a perfect interview soundbite.</p>
+
+<div class="repo-parallel">
+You see the same trap in repo. A strategy of always lending at GC "for the carry" has a high win rate &mdash; you collect the spread most days. But when a collateral squeeze hits (fails spike, specials blow out), the loss on that one event wipes out months of carry. The daily carry was compensation for tail risk, not "free income." Same exact dynamic as selling covered calls.
+</div>
+</div>
+
+<!-- ========== DAY 2 SECTION 3 ========== -->
+<h2>10. Synthetics and Replication</h2>
+
+<div class="section">
+<p>Put-call parity lets you build any position from any other. These are the key synthetics:</p>
+
+<div class="table-wrap">
+<table>
+<tr><th>You want this</th><th>Build it with</th><th>Parity rearrangement</th></tr>
+<tr><td>Synthetic long stock</td><td>Long call + short put (same K)</td><td>S = C - P + K&middot;e<sup>-rT</sup></td></tr>
+<tr><td>Synthetic call</td><td>Long put + long stock</td><td>C = P + S - K&middot;e<sup>-rT</sup></td></tr>
+<tr><td>Synthetic put</td><td>Long call + short stock</td><td>P = C - S + K&middot;e<sup>-rT</sup></td></tr>
+<tr><td>Synthetic forward</td><td>Long call + short put (same K, ATM)</td><td>F = C - P + K</td></tr>
+<tr><td>Conversion (arb)</td><td>Long stock + long put + short call</td><td>Should = K&middot;e<sup>-rT</sup></td></tr>
+<tr><td>Reversal (arb)</td><td>Short stock + short put + long call</td><td>Should = -K&middot;e<sup>-rT</sup></td></tr>
+</table>
+</div>
+
+<div class="key-insight">
+<strong>Why synthetics matter on a vol desk:</strong><br><br>
+A market maker doesn't care whether they buy a call or sell a put &mdash; parity says they're the same position (plus/minus stock). If a client wants to sell you calls but puts are cheaper, you can buy the puts and short stock to create the equivalent. This is how desks stay flexible and always provide liquidity.<br><br>
+On commodity desks specifically: when a producer wants to buy puts (hedging downside), the desk often converts this into a call position via parity, because it's easier to manage calls and delta together.
+</div>
+
+<div class="repo-parallel">
+<strong>You already do synthetic replication.</strong> In repo, a reverse repo (lending cash, taking collateral) is economically the same as buying the bond and financing it. If the repo rate is out of line with the bond yield, you construct the synthetic to capture the arb. Options synthetics work identically &mdash; if a call is mispriced relative to the put, you construct the conversion/reversal to lock in the arb.
+</div>
+</div>
+
+<!-- ========== DAY 2 SECTION 4 ========== -->
+<h2>11. The SIG Parity Game (Mental Math)</h2>
+
+<div class="section">
+<p>At SIG (Susquehanna), every trainee plays the put-call parity game to build speed. Kris played it on the floor in the year 2000. Market makers <em>still</em> use it today. The formula:</p>
+
+<div class="formula">
+  <div class="label">The Game Formula</div>
+  C = (S - K) + P + RC
+</div>
+
+<p>You're given 3 of the 4 variables (C, P, S-K, RC). Solve for the missing one. <strong>Speed is everything.</strong></p>
+
+<h3>Shortcuts to Get Fast:</h3>
+<ul>
+  <li><strong>(S - K) is just intrinsic value.</strong> If S = 102, K = 100, then (S-K) = 2. Call is $2 in-the-money.</li>
+  <li><strong>The extrinsic (time value) of the ITM option = the price of the OTM option.</strong> If the 100-strike call is worth $5 when the stock is at $102, then the extrinsic = $5 - $2 = $3. The 100-strike put must be worth ~$3 (plus/minus the carry).</li>
+  <li><strong>RC (carry) is usually small.</strong> For short-dated options it's pennies. For 1-year options on a $100 stock at 5%, it's about $2.50.</li>
+</ul>
+
+<h3>Practice Problems (do these fast):</h3>
+<ol>
+  <li>S = $100, K = $100, P = $3, RC = $0.50. What is C?</li>
+  <li>S = $105, K = $100, C = $8, RC = $0.25. What is P?</li>
+  <li>S = $98, K = $100, C = $2, P = $3.75. What is RC?</li>
+  <li>C = $6, P = $4, K = $100, RC = $0.50. What is S?</li>
+</ol>
+
+<div class="answer-hidden">
+<strong>Answers (hover):</strong><br>
+1. C = (100-100) + 3 + 0.50 = <strong>$3.50</strong><br>
+2. P = C - (S-K) - RC = 8 - 5 - 0.25 = <strong>$2.75</strong><br>
+3. RC = C - (S-K) - P = 2 - (-2) - 3.75 = 4 - 3.75 = <strong>$0.25</strong><br>
+4. S = C - P - RC + K = 6 - 4 - 0.50 + 100 = <strong>$101.50</strong>
+</div>
+</div>
+
+<!-- ========== DAY 2 SECTION 5 ========== -->
+<h2>12. The Deep Lesson (Kris's Concluding Thought)</h2>
+
+<div class="section">
+<div class="key-insight">
+<em>"Put-call parity is not some dry academic idea. It is a profoundly deep insight. It does not matter which specific option expression you choose. The moment you opened an option account you committed to having a view on volatility."</em><br><br>
+<em>"All the rhetoric around retail options trading is eliding the fact that the typical option user is poorly equipped to assess if volatility is cheap or expensive and without such a view should not be trading an instrument whose value depends on it."</em><br><br>
+&mdash; Kris Abdelmessih
+</div>
+
+<p>This is the paragraph that should change how you think about options permanently. It doesn't matter if you trade calls, puts, straddles, covered calls, iron condors, or cash-secured puts. <strong>You are always and everywhere making a bet on volatility.</strong> The only question is whether you know it.</p>
+
+<p>The vol desk interview will test whether you understand this. The people across the table from you have spent years living this truth. When they ask you about covered calls or selling puts, they want to hear you say: "It's a short vol trade. Whether it's good depends on whether IV is above or below what will realize."</p>
+</div>
+
+<!-- ========== DAY 2 INTERVIEW Q ========== -->
+<h2>13. Day 2 Interview Questions</h2>
+
+<div class="section">
+
+<div class="interview-q">
+<strong>Q6:</strong> If a call is trading at $5, the stock is at $100, strike is $100, r=0, T=0.25. What must the put be worth?
+</div>
+<div class="answer-hidden">
+<strong>Model answer (hover):</strong> Put-call parity: C - P = S - K&middot;e<sup>-rT</sup>. With r=0: C - P = S - K = 100 - 100 = 0. So P = C = <strong>$5</strong>. When the call and put are at-the-money and rates are zero, they must be equal. (With the SIG formula: C = (S-K) + P + RC. RC = 0 since r=0. So 5 = 0 + P + 0, P = $5.)
+</div>
+
+<div class="interview-q">
+<strong>Q7:</strong> A client says "I sell covered calls for income." What's wrong with this framing?
+</div>
+<div class="answer-hidden">
+<strong>Model answer (hover):</strong> Selling a covered call is not income &mdash; it's a short vol trade. The "income" is compensation for being short volatility (giving up upside beyond the strike). Whether it's a good trade depends entirely on whether implied vol was higher or lower than realized vol. If you sell vol too cheap (realized &gt; implied), you'll have a high win rate but negative expectancy. You could achieve the same initial exposure by just selling a fraction of your shares &mdash; without taking a vol position. The moment you trade an option, you need a view on vol.
+</div>
+
+<div class="interview-q">
+<strong>Q8:</strong> How would you construct a synthetic forward? What's the cost?
+</div>
+<div class="answer-hidden">
+<strong>Model answer (hover):</strong> Buy an ATM call and sell an ATM put at the same strike and expiry. By parity: C - P = S - K&middot;e<sup>-rT</sup>, so long call + short put = long stock - discounted strike = synthetic forward. The cost is the carry (interest cost to expiry). In commodities with futures: C - P = e<sup>-rT</sup> &times; (F - K), so at ATM forward strike, the cost is approximately zero.
+</div>
+
+<div class="interview-q">
+<strong>Q9:</strong> You notice that 100-strike calls on crude are trading at 30 vol, but 100-strike puts are at 28 vol. What do you do?
+</div>
+<div class="answer-hidden">
+<strong>Model answer (hover):</strong> This violates put-call parity &mdash; calls and puts at the same strike must imply the same vol (or the arb is on). You'd do a conversion: sell the "expensive" call (30 vol), buy the "cheap" put (28 vol), and buy the underlying to be delta neutral. You lock in the 2-vol-point spread as risk-free profit. This is a classic market maker arb.
+</div>
+
+<div class="interview-q">
+<strong>Q10 (hard):</strong> If options are always vol trades, why do most retail traders lose money selling options?
+</div>
+<div class="answer-hidden">
+<strong>Model answer (hover):</strong> Because they confuse high win rate with positive expectancy. Option-selling strategies win most of the time (since implied vol typically exceeds realized vol &mdash; the vol risk premium). But retail sellers (1) don't assess whether vol is cheap/expensive, (2) don't properly size for tail risk, and (3) are attracted to the psychological comfort of frequent small wins. When realized vol exceeds implied &mdash; a tail event &mdash; one loss wipes out months of "income." They're being paid a risk premium they don't understand and can't afford to bear.
+</div>
+</div>
+
+<!-- ========== COMBINED FORMULA REFERENCE ========== -->
+<h2>All Formulas from Day 1 &amp; 2</h2>
+
+<div class="section">
+<div class="formula">
+  <div class="label">Daily vol from annual</div>
+  &sigma;<sub>daily</sub> = &sigma;<sub>annual</sub> &divide; 16
+</div>
+<div class="formula">
+  <div class="label">Straddle approximation</div>
+  ATM Straddle &approx; 0.8 &times; S &times; &sigma; &times; &radic;T
+</div>
+<div class="formula">
+  <div class="label">Straddle &rarr; implied vol</div>
+  &sigma; &approx; Straddle &divide; (0.8 &times; S &times; &radic;T)
+</div>
+<div class="formula">
+  <div class="label">Put-Call Parity</div>
+  C - P = S - K&middot;e<sup>-rT</sup><br>
+  <span style="font-size: 0.9rem;">or: C = (S - K) + P + RC</span>
+</div>
+<div class="formula">
+  <div class="label">Put-Call Parity (futures)</div>
+  C - P = e<sup>-rT</sup> &times; (F - K)
+</div>
+<div class="formula">
+  <div class="label">Move scaling</div>
+  N-day move = 1-day move &times; &radic;N
+</div>
+</div>
+
+<div class="nav-section">
+  <strong>Reply in the CLI with your answers to Q1-Q10. I'll grade you and we'll drill weak spots.</strong><br>
+  Next up: Day 3 &mdash; Delta &amp; Delta Hedging
+</div>
+
 </body>
 </html>
